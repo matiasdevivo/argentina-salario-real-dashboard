@@ -1,0 +1,79 @@
+# ============================================================
+# argentina-salario-real-dashboard
+# Requirements / Entorno de trabajo
+# ============================================================
+
+# ------------------------------------------------------------
+# SOFTWARE PRINCIPAL
+# ------------------------------------------------------------
+
+# Power BI Desktop
+# Versión recomendada: 2.130 o superior (Agosto 2025)
+# Descarga: https://powerbi.microsoft.com/desktop
+# Nota: Solo disponible para Windows
+# Alternativa Mac: Power BI Service (web) o máquina virtual
+
+# ------------------------------------------------------------
+# DATOS — Archivos fuente (.xlsx)
+# ------------------------------------------------------------
+
+# ipc.xlsx
+#   Contenido : Variación mensual del IPC Nacional
+#   Fuente    : INDEC (Instituto Nacional de Estadística y Censos)
+#   URL       : https://www.indec.gob.ar
+#   Columnas  : Fecha (Date), Variacion_Mensual_IPC (Decimal)
+#   Rango     : Enero 2017 — Agosto 2025
+
+# Remuneracion_-_Filtrada.xlsx
+#   Contenido : RIPTE mensual (Remuneración Imponible Promedio de Trabajadores Estables)
+#   Fuente    : MTEySS (Ministerio de Trabajo)
+#   URL       : https://www.argentina.gob.ar/trabajo/estadisticas/ripte
+#   Columnas  : Fecha (Date), Salario_Nominal (Entero)
+#   Rango     : Enero 2017 — Agosto 2025
+
+# cambio_tipo.xlsx
+#   Contenido : Tipo de cambio nominal promedio mensual (pesos por dólar)
+#   Fuente    : BCRA (Banco Central de la República Argentina)
+#   URL       : https://www.bcra.gob.ar
+#   Columnas  : Fecha (texto → convertir a Date en Power Query), TC_Nominal (Decimal)
+#   Rango     : Enero 2017 — Agosto 2025
+#   Nota      : Requiere transformación de fecha en Power Query (ver docs/)
+
+# ------------------------------------------------------------
+# CONFIGURACIÓN DE POWER QUERY
+# ------------------------------------------------------------
+
+# Configuración regional recomendada para separador decimal:
+#   Español (Argentina) o Español (España)
+#   Necesario para convertir correctamente los valores numéricos
+#   del archivo cambio_tipo.xlsx (usa coma como separador decimal)
+
+# ------------------------------------------------------------
+# VERSIONES DE COMPATIBILIDAD
+# ------------------------------------------------------------
+
+# Power BI Desktop  >= 2.100  (funciones DAX utilizadas)
+# DAX               >= 2021   (LASTNONBLANKVALUE, PRODUCTX)
+# Excel / xlsx      >= 2013   (formato de archivos fuente)
+
+# ------------------------------------------------------------
+# DOCUMENTACIÓN INCLUIDA (docs/)
+# ------------------------------------------------------------
+
+# PowerBI_Salario_Real_Argentina.docx
+#   Guía paso a paso completa:
+#   - Power Query (transformaciones por tabla)
+#   - Modelo de datos y relaciones
+#   - Código DAX de todas las medidas
+#   - Configuración de cada visual
+#   - Paleta de colores y formato
+
+# Presentacion_Dashboard.docx
+#   Análisis y explicación del dashboard:
+#   - Tema y objetivos
+#   - Justificación de métricas
+#   - Resultados con datos reales
+#   - Conclusiones
+
+# Salario_Real_vs_Inflacion.pptx
+#   Presentación ejecutiva de 7 slides para exponer el análisis
